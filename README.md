@@ -51,12 +51,12 @@ const text = md`
 'use strict';
 
 var text = <div>
-  <p>This is a paragraph <span className=\\"foo\\"> with a <strong>markdown</strong> span inside </span></p>
+  <p>This is a paragraph <span className="foo"> with a <strong>markdown</strong> span inside </span></p>
   <div style={{ margin: 70 }}>
     And here is a <em>paragraph</em> inside a div.
     <a href="/some/url">Link</a>
   </div>
-</div>;"
+</div>;
 ```
 
 ## Options
