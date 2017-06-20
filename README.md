@@ -1,5 +1,7 @@
 # babel-plugin-transform-md-react
 
+[![Build Status](https://travis-ci.org/mapbox/babel-plugin-transform-md-react.svg?branch=master)](https://travis-ci.org/mapbox/babel-plugin-transform-md-react)
+
 🚧 🚧 **EXPERIMENTAL! WORK IN PROGRESS!** 🚧 🚧
 
 Transform Markdown interpolated with JS expressions and JSX elements into pure JSX, at compile time.
@@ -28,7 +30,7 @@ const foo = md`
 var foo = <div>
   <h1>Title</h1>
   <p>This is <strong>bold.</strong>
-    Here is a <a href=\\"/some/url\\">link</a>.</p>
+    Here is a <a href="/some/url">link</a>.</p>
 </div>;
 ```
 
@@ -46,13 +48,13 @@ const text = md`
 `;
 
 // Output
-"'use strict';
+'use strict';
 
 var text = <div>
   <p>This is a paragraph <span className=\\"foo\\"> with a <strong>markdown</strong> span inside </span></p>
   <div style={{ margin: 70 }}>
     And here is a <em>paragraph</em> inside a div.
-    <a href=\\"/some/url\\">Link</a>
+    <a href="/some/url">Link</a>
   </div>
 </div>;"
 ```
