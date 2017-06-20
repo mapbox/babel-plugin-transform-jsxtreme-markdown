@@ -10,7 +10,7 @@ Uses [md-react-transformer](https://github.com/mapbox/md-react-transformer) to c
 
 ## Usage
 
-Transforms a special [tagged template literal] (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#Tagged_template_literals).
+Transforms a special [tagged template literal](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#Tagged_template_literals).
 
 `require` or `import` 'babel-plugin-transform-md-react/md', or whatever you've specified as `packageName` in your Babel options.
 Then use that value as a template literal tag, marking the template literals you'd like to be compiled at run time.
