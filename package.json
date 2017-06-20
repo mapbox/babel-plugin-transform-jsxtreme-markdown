@@ -1,0 +1,63 @@
+{
+  "name": "@mapbox/babel-plugin-transform-md-react",
+  "version": "0.1.0",
+  "description": "Transform Markdown interpolated with JS expressions and JSX elements at compile time",
+  "main": "index.js",
+  "scripts": {
+    "precommit": "lint-staged",
+    "lint": "eslint *.js test lib",
+    "format": "prettier --single-quote --write '{,lib/,test/}*.js'",
+    "test-jest": "jest",
+    "pretest": "npm run lint",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mapbox/babel-plugin-transform-md-react.git"
+  },
+  "keywords": [
+    "babel",
+    "babel-plugin",
+    "markdown",
+    "react",
+    "jsx",
+    "transform"
+  ],
+  "author": "Mapbox",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mapbox/babel-plugin-transform-md-react/issues"
+  },
+  "homepage": "https://github.com/mapbox/babel-plugin-transform-md-react#readme",
+  "dependencies": {
+    "@mapbox/md-react-transformer": "^0.3.0",
+    "babylon": "^6.17.4"
+  },
+  "devDependencies": {
+    "babel-preset-es2015": "^6.24.1",
+    "eslint": "^4.0.0",
+    "eslint-plugin-node": "^5.0.0",
+    "husky": "^0.13.4",
+    "jest": "^20.0.4",
+    "lint-staged": "^4.0.0",
+    "prettier": "^1.4.4"
+  },
+  "lint-staged": {
+    "{,lib/,test/}*.js": [
+      "prettier --single-quote --write",
+      "git add"
+    ]
+  },
+  "jest": {
+    "coverageReporters": [
+      "json",
+      "lcov",
+      "text",
+      "html"
+    ],
+    "resetMocks": true
+  },
+  "engines": {
+    "node": ">=4"
+  }
+}
