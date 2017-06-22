@@ -1,23 +1,23 @@
-# babel-plugin-transform-md-react
+# babel-plugin-transform-jsxtreme-markdown
 
-[![Build Status](https://travis-ci.org/mapbox/babel-plugin-transform-md-react.svg?branch=master)](https://travis-ci.org/mapbox/babel-plugin-transform-md-react)
+[![Build Status](https://travis-ci.org/mapbox/babel-plugin-transform-jsxtreme-markdown.svg?branch=master)](https://travis-ci.org/mapbox/babel-plugin-transform-jsxtreme-markdown)
 
 🚧 🚧 **EXPERIMENTAL! WORK IN PROGRESS!** 🚧 🚧
 
 Transform Markdown interpolated with JS expressions and JSX elements into pure JSX, at compile time.
 
-Uses [md-react-transformer](https://github.com/mapbox/md-react-transformer) to compile the interpolated Markdown.
+Uses [jsxtreme-markdown](https://github.com/mapbox/jsxtreme-markdown) to compile the interpolated Markdown.
 
 ## Usage
 
 Transforms a special [tagged template literal](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#Tagged_template_literals).
 
-`require` or `import` 'babel-plugin-transform-md-react/md', or whatever you've specified as `packageName` in your Babel options.
-Then use that value as a template literal tag, marking the template literals you'd like to be compiled at run time.
+`require` or `import` `'babel-plugin-transform-jsxtreme-markdown/md'`, or whatever you've specified as `packageName` in your Babel options.
+Then use that (fake) module's value as a template literal tag, marking the template literals you'd like to be compiled at run time.
 
 ```jsx
 // Input
-const md = require('babel-plugin-transform-md-react/md');
+const md = require('babel-plugin-transform-jsxtreme-markdown/md');
 const foo = md`
   # Title
   This is **bold.**
@@ -34,17 +34,18 @@ var foo = <div>
 </div>;
 ```
 
-Because this plugin uses [md-react-transformer](https://github.com/mapbox/md-react-transformer), you can also interpolate JS expressions and JSX elements within special delimiters. Read more about this in the md-react-transformer docs.
+**Because this plugin uses [jsxtreme-markdown](https://github.com/mapbox/jsxtreme-markdown), you can also interpolate JS expressions and JSX elements within special delimiters.**
+Read more about this in the jsxtreme-markdown docs.
 
 ```jsx
 // Input
-const md = require('babel-plugin-transform-md-react/md');
+const md = require('babel-plugin-transform-jsxtreme-markdown/md');
 const text = md`
-  This is a paragraph {# <span className="foo"> #} with a **markdown** span inside {# </span> #}
-  {# <div style={{ margin: 70 }}> #}
+  This is a paragraph {{<span className="foo">}} with a **markdown** span inside {{</span>}}
+  {{ <div style={{ margin: 70 }}> }}
     And here is a *paragraph* inside a div.
     [Link](/some/url)
-  {# </div> #}
+  {{ </div> }}
 `;
 
 // Output
@@ -61,8 +62,9 @@ var text = <div>
 
 ## Options
 
-You can pass any of [the options available to `mdReactTransformer.mdToJsx`](https://github.com/mapbox/md-react-transformer#mdtojsx).
+You can pass any of [the options available to `jsxtremeMarkdown.toJsx`](https://github.com/mapbox/jsxtreme-markdown#tojsx).
 
 Additional options:
-- **packageName** `?string` - Default: `'babel-plugin-transform-md-react/md'`.
+
+- **packageName** `?string` - Default: `'babel-plugin-transform-jsxtreme-markdown/md'`.
   The name of the package that you will `require` or `import` to use this thing.

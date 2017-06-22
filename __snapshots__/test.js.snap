@@ -14,10 +14,12 @@ exports[`alternate variable name, with broken-up nested JSX 1`] = `
 "'use strict';
 
 var text = <div>
-        <p>This is a paragraph <span className=\\"foo\\"> with a <strong>markdown</strong> span inside </span></p>
+        <p>This is a paragraph <span className=\\"foo\\"> with a <strong>markdown</strong> span inside </span>
+        </p>
         <div style={{ margin: 70 }}>
-        <p>And here is a <em>paragraph</em> inside a div.
-          <a href=\\"/some/url\\">Link</a></p>
+        <p>      And here is a <em>paragraph</em> inside a div.
+          <a href=\\"/some/url\\">Link</a>
+        </p>
         </div>
       </div>;"
 `;
@@ -53,17 +55,6 @@ var foo = <div>
       </div>;"
 `;
 
-exports[`mdToJsx options 1`] = `
-"'use strict';
-
-var foo = <div>
-        <p>This is a paragraph <span className=\\"foo\\">with a span inside</span></p>
-        <div style={{ margin: 70 }}>
-        <p>And <strong>here</strong>* is a div with {'{'}# Markdown #{'}'} inside.</p>
-        </div>
-      </div>;"
-`;
-
 exports[`require in nested scope 1`] = `
 "'use strict';
 
@@ -76,4 +67,13 @@ function x() {
       </div>;
   }
 }"
+`;
+
+exports[`toJsx options 1`] = `
+"'use strict';
+
+var foo = <p>This is a paragraph {'{'}{'{'} <span className=\\"foo\\">with a span inside</span> {'}'}{'}'}
+        {'{'}{'{'} <div style={'{'}{'{'} margin: 70 {'}'}{'}'}> {'}'}{'}'}
+        And <strong>here*</strong> is a div with {Markdown} inside.
+        {'{'}{'{'}  {'}'}{'}'}</p>;"
 `;

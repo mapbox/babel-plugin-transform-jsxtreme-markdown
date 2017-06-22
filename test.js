@@ -13,7 +13,7 @@ const transform = (code, options) => {
 
 test('basic usage', () => {
   const code = `
-    const md = require('md-react-transformer/md');
+    const md = require('jsxtreme-markdown/md');
     const foo = md\`
       # Title
       This is **bold.**
@@ -25,7 +25,7 @@ test('basic usage', () => {
 
 test('import instead of require', () => {
   const code = `
-    import md from 'md-react-transformer/md';
+    import md from 'jsxtreme-markdown/md';
     const foo = md\`
       # Title
       This is **bold.**
@@ -51,7 +51,7 @@ test('require in nested scope', () => {
   const code = `
     function x() {
       if (true) {
-        const md = require('md-react-transformer/md');
+        const md = require('jsxtreme-markdown/md');
         const foo = md\`
           # Title
           This is **bold.**
@@ -65,20 +65,20 @@ test('require in nested scope', () => {
 
 test('alternate variable name, with broken-up nested JSX', () => {
   const code = `
-    const markit = require('md-react-transformer/md');
+    const markit = require('jsxtreme-markdown/md');
     const text = markit\`
-    This is a paragraph {# <span className="foo"> #} with a **markdown** span inside {# </span> #}
-    {# <div style={{ margin: 70 }}> #}
+    This is a paragraph {{ <span className="foo"> }} with a **markdown** span inside {{ </span> }}
+    {{ <div style={{ margin: 70 }}> }}
       And here is a *paragraph* inside a div.
       [Link](/some/url)
-    {# </div> #}\`
+    {{ </div> }}\`
   `;
   expect(transform(code)).toMatchSnapshot();
 });
 
-test('mdToJsx options', () => {
+test('toJsx options', () => {
   const code = `
-    import md from 'md-react-transformer/md';
+    import md from 'jsxtreme-markdown/md';
     const foo = md\`
       This is a paragraph {{ <span className="foo">with a span inside</span> }}
       {{ <div style={{ margin: 70 }}> }}
@@ -88,14 +88,14 @@ test('mdToJsx options', () => {
   `;
   expect(
     transform(code, {
-      delimiters: ['{{', '}}']
+      delimiters: ['{#', '#}']
     })
   ).toMatchSnapshot();
 });
 
 test('fails with placeholders in template literals', () => {
   const code = `
-    const md = require('md-react-transformer/md');
+    const md = require('jsxtreme-markdown/md');
     const foo = md\`
       # Title
       This is **bold.** $\{number}
@@ -108,7 +108,7 @@ test('fails with placeholders in template literals', () => {
 test('does nothing when module is not in scope', () => {
   const code = `
     function x() {
-      const md = require('md-react-transformer/md');
+      const md = require('jsxtreme-markdown/md');
     }
     const foo = md\`
       # Title

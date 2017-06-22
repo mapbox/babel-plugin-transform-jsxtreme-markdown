@@ -1,9 +1,9 @@
 'use strict';
 
 const babylon = require('babylon');
-const mdReactTransformer = require('@mapbox/md-react-transformer');
+const jsxtremeMarkdown = require('@mapbox/jsxtreme-markdown');
 
-const DEFAULT_PACKAGE_NAME = 'md-react-transformer/md';
+const DEFAULT_PACKAGE_NAME = 'jsxtreme-markdown/md';
 
 module.exports = babel => {
   const t = babel.types;
@@ -78,7 +78,7 @@ module.exports = babel => {
     }
 
     const markdown = quasi.quasis.map(quasi => quasi.value.cooked).join('');
-    const jsx = mdReactTransformer.mdToJsx(markdown, state.opts);
+    const jsx = jsxtremeMarkdown.toJsx(markdown, state.opts);
     const parsedJsx = babylon.parseExpression(jsx, { plugins: ['jsx'] });
     path.replaceWith(parsedJsx);
   };
