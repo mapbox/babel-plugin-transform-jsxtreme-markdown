@@ -1,4 +1,4 @@
-# babel-plugin-transform-jsxtreme-markdown
+# @mapbox/babel-plugin-transform-jsxtreme-markdown
 
 [![Build Status](https://travis-ci.org/mapbox/babel-plugin-transform-jsxtreme-markdown.svg?branch=master)](https://travis-ci.org/mapbox/babel-plugin-transform-jsxtreme-markdown)
 
