@@ -43,7 +43,7 @@
     "prettier": "^1.4.4"
   },
   "lint-staged": {
-    "{,lib/**/,test/**/}*.js": [
+    "**/*.js": [
       "eslint",
       "prettier --single-quote --write",
       "git add"
@@ -51,12 +51,10 @@
   },
   "jest": {
     "coverageReporters": [
-      "json",
-      "lcov",
       "text",
       "html"
     ],
-    "resetMocks": true
+    "clearMocks": true
   },
   "engines": {
     "node": ">=4"
