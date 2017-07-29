@@ -8,6 +8,12 @@ Transform Markdown interpolated with JS expressions and JSX elements into pure J
 
 Uses [jsxtreme-markdown](https://github.com/mapbox/jsxtreme-markdown) to compile the interpolated Markdown.
 
+## Installation
+
+```
+npm install @mapbox/babel-plugin-transform-jsxtreme-markdown
+```
+
 ## Usage
 
 Transforms a special [tagged template literal](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#Tagged_template_literals).
@@ -39,7 +45,7 @@ Read more about this in the jsxtreme-markdown docs.
 
 ```jsx
 // Input
-const md = require('babel-plugin-transform-jsxtreme-markdown/md');
+import md from 'babel-plugin-transform-jsxtreme-markdown/md';
 const text = md`
   This is a paragraph {{<span className="foo">}} with a **markdown** span inside {{</span>}}
   {{ <div style={{ margin: 70 }}> }}
@@ -60,11 +66,15 @@ var text = <div>
 </div>;
 ```
 
-## Options
+### options
 
 You can pass any of [the options available to `jsxtremeMarkdown.toJsx`](https://github.com/mapbox/jsxtreme-markdown#tojsx).
 
 Additional options:
 
-- **packageName** `?string` - Default: `'babel-plugin-transform-jsxtreme-markdown/md'`.
-  The name of the package that you will `require` or `import` to use this thing.
+#### packageName
+
+Type: `string`.
+Default: `'babel-plugin-transform-jsxtreme-markdown/md'`.
+
+The name of the package that you will `require` or `import` to use this thing.
